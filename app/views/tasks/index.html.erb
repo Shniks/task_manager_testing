@@ -4,5 +4,11 @@
     <div class='task_<%= task.id %>'>
       <h3><a href = '/tasks/<%= task.id %>'><%= task.name %></a></h3>
       <h3><%= task.description %></h3>
+      <a href="/tasks/<%= task.id  %>/edit">Edit</a>
+      <form action="/tasks/<%= task.id %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" name = "Delete" value="delete"/>
+      </form>
     </div>
   <% end %>
