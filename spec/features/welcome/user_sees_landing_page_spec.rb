@@ -4,7 +4,7 @@ RSpec.describe "welcome page", type: :feature do
   describe "When I visit the / page" do
     it "displays a welcome message and has links to the tasks index page and create a task page" do
 
-      visit '/'
+      visit root_path
 
       expect(page).to have_content "Welcome to Task Manager"
       expect(page).to have_content "Tasks Index"

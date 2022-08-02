@@ -9,10 +9,16 @@ RSpec.describe 'List all tasks in tasks index' do
 
       visit '/tasks'
 
-      expect(page).to have_content('Task 1')
-      expect(page).to have_content('Description 1')
-      expect(page).to have_content('Task 5')
-      expect(page).to have_content('Description 5')
+      within('.task_1') do
+        expect(page).to have_content('Task 0')
+        expect(page).to have_content('Description 0')
+      end
+
+      within('.task_6') do
+        expect(page).to have_content('Task 5')
+        expect(page).to have_content('Description 5')
+      end
+
       expect(page).to_not have_content('Task 11')
       expect(page).to_not have_content('Description 11')
     end
