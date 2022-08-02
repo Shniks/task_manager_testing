@@ -71,3 +71,16 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+DatabaseCleaner.strategy = :truncation
+
+  RSpec.configure do |c|
+    c.before(:each) do
+      DatabaseCleaner.clean
+    end
+
+    c.after(:each) do
+      DatabaseCleaner.clean
+    end
+    c.include Capybara::DSL
+  end
