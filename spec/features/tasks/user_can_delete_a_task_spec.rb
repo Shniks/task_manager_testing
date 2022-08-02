@@ -13,7 +13,6 @@ RSpec.describe 'When I click the delete link next to a task' do
       within('.task_4') do
         click_button 'Delete'
       end
-
       expect(page).to_not have_content('Task 4')
       expect(page).to_not have_content('Description 4')
     end
