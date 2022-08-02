@@ -16,10 +16,8 @@ RSpec.describe 'Create new task', Type: :feature do
 
       expect(current_path).to eq('/tasks')
 
-      within('.container') do
-        expect(page).to have_content("Task 1")
-        expect(page).to have_content("Desc of Task 1")
-      end
+      expect(page).to have_content("Task 1")
+      expect(page).to have_content("Desc of Task 1")
     end
   end
 end

@@ -1,5 +1,9 @@
 class TasksController < ApplicationController
 
+  def index
+    @tasks = Task.all
+  end
+
   def new
 
   end
@@ -10,7 +14,7 @@ class TasksController < ApplicationController
       description: params[:task][:description]
     })
     task.save
-    
+
     redirect_to '/tasks'
   end
 
