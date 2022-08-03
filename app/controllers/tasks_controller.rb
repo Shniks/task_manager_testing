@@ -9,11 +9,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    # task = Task.new({
-    #   name: params[:task][:name],
-    #   description: params[:task][:description]
-    # })
-    # task.save   #old code without strong params
     Task.create(task_params)
 
     redirect_to '/tasks'
@@ -28,19 +23,14 @@ class TasksController < ApplicationController
   end
 
   def update
-    task = Task.find(params[:id])
-    task.update({
-      name: params[:task][:name],
-      description: params[:task][:description]
-    })
-    task.save
+    Task.update(task_params)
 
     redirect_to '/tasks'
   end
 
   def destroy
     Task.destroy(params[:id])
-    
+
     redirect_to '/tasks'
   end
 
