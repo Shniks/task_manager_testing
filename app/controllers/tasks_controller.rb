@@ -9,11 +9,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new({
-      name: params[:task][:name],
-      description: params[:task][:description]
-    })
-    task.save
+    # task = Task.new({
+    #   name: params[:task][:name],
+    #   description: params[:task][:description]
+    # })
+    # task.save   #old code without strong params
+    Task.create(task_params)
 
     redirect_to '/tasks'
   end
@@ -33,12 +34,21 @@ class TasksController < ApplicationController
       description: params[:task][:description]
     })
     task.save
+
     redirect_to '/tasks'
   end
 
   def destroy
     Task.destroy(params[:id])
+    
     redirect_to '/tasks'
+  end
+
+
+  private
+
+  def task_params
+    params.require(:task).permit(:name, :description)
   end
 
 end
