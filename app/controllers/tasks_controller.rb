@@ -23,7 +23,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    Task.update(task_params)
+    task = Task.find(params[:id])
+    task.update(task_params)
 
     redirect_to '/tasks'
   end
